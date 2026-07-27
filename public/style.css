@@ -1,0 +1,230 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --primary:#0B6E4F;
+    --secondary:#1B9C5A;
+    --accent:#A7D129;
+    --light:#F4FAF5;
+    --text:#1E293B;
+    --gray:#64748B;
+    --border:#E2E8F0;
+
+}
+
+body{
+
+    font-family:Inter,Segoe UI,sans-serif;
+    background:linear-gradient(135deg,#F4FAF5,#E8F5EC);
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+}
+
+.card{
+
+    width:100%;
+    max-width:480px;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:45px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+
+    animation:fade .6s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.logo{
+
+    width:130px;
+    display:block;
+    margin:auto;
+    margin-bottom:25px;
+
+}
+
+h1{
+
+    text-align:center;
+    color:var(--primary);
+    font-size:34px;
+    margin-bottom:12px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+    color:var(--gray);
+    line-height:1.6;
+    margin-bottom:35px;
+
+}
+
+.input-group{
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+}
+
+label{
+
+    font-weight:600;
+    color:var(--text);
+
+}
+
+input{
+
+    padding:16px;
+
+    border:2px solid var(--border);
+
+    border-radius:14px;
+
+    font-size:17px;
+
+    transition:.25s;
+
+}
+
+input:focus{
+
+outline:none;
+
+border-color:var(--secondary);
+
+}
+
+button{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    padding:16px;
+
+    margin-top:22px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+#verificar{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+#verificar:hover{
+
+transform:translateY(-2px);
+
+background:var(--secondary);
+
+}
+
+#continuar{
+
+    display:none;
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+#continuar:hover{
+
+transform:translateY(-2px);
+
+}
+
+#mensaje{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+}
+
+.success{
+
+color:#16A34A;
+
+}
+
+.error{
+
+color:#DC2626;
+
+}
+
+.loading{
+
+color:#2563EB;
+
+}
+
+@media(max-width:600px){
+
+.card{
+
+padding:30px;
+
+}
+
+h1{
+
+font-size:28px;
+
+}
+
+}
