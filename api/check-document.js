@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     try {
 
         const url =
-            "https://script.google.com/macros/s/AKfycbyqjFT0XDCI2lAgpmGNrpgkgWjun1z9RjMubf_uQQXeMrT9aPW7RsCZoN36ZLWrFfz3-g/exec?documento=" +
+            "https://script.google.com/macros/s/AKfycbyQBsBk_Ak8IkDWXbrpt6YLsKfgamw69ljCcUXkU3hLcIWeVI1OYI93dnk1T6VjPIY7UA/exec?documento=" +
             encodeURIComponent(documento);
 
         const response = await fetch(url);
