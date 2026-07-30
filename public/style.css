@@ -209,22 +209,67 @@ color:#DC2626;
 
 .loading{
 
-color:#2563EB;
+color:#b7cfbb;
 
 }
 
-@media(max-width:600px){
+@media (max-width: 600px){
 
-.card{
+    body{
+        padding:16px;
+        align-items:flex-start;
+        padding-top:30px;
+    }
 
-padding:30px;
+   .card{
 
-}
+        width:min(90%, 340px);
+        height: auto;
+        padding:28px;
+        border-radius:20px;
 
-h1{
+    }
 
-font-size:28px;
+    .logo{
+        width:90px;
+        margin-bottom:18px;
+    }
 
-}
+    h1{
+        font-size:24px;
+        margin-bottom:8px;
+    }
+
+    .subtitle{
+        font-size:14px;
+        line-height:1.5;
+        margin-bottom:24px;
+    }
+
+    label{
+        font-size:14px;
+    }
+
+    .input-group{
+        gap:8px;
+    }
+
+    input{
+        padding:13px 14px;
+        font-size:15px;
+        border-radius:12px;
+    }
+
+    button{
+        padding:14px;
+        font-size:15px;
+        border-radius:12px;
+        margin-top:18px;
+    }
+
+    #mensaje{
+        margin-top:18px;
+        font-size:14px;
+    }
 
 }
