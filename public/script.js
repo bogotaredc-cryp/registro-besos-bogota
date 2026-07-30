@@ -7,33 +7,45 @@ const mensaje = document.getElementById("mensaje");
 
 // Google Form
 const FORM =
-"https://docs.google.com/forms/d/e/1FAIpQLScQ4-WuN3ZyCjQ2Upw1X8Rs2zSk6ZivPwWINJSV5XT4bRsI8g/viewform?usp=pp_url";
+    "https://docs.google.com/forms/d/e/1FAIpQLScQ4-WuN3ZyCjQ2Upw1X8Rs2zSk6ZivPwWINJSV5XT4bRsI8g/viewform?usp=pp_url";
 
 const DOCUMENTO_ENTRY = "1830107167";
+documento.addEventListener("input", () => {
 
+    documento.value = documento.value.replace(/\D/g, "");
+
+});
 verificar.addEventListener("click", verificarDocumento);
 
-async function verificarDocumento(){
+async function verificarDocumento() {
 
     const doc = documento.value.trim();
 
     continuar.style.display = "none";
 
-    if(doc===""){
+    if (doc === "") {
 
-        mensaje.className="error";
-        mensaje.innerHTML="Ingrese su documento.";
+        mensaje.className = "error";
+        mensaje.innerHTML = "Ingrese su documento.";
+
+        return;
+
+    }
+    if (!/^\d+$/.test(doc)) {
+
+        mensaje.className = "error";
+        mensaje.innerHTML = "El documento solo puede contener números.";
 
         return;
 
     }
 
-    verificar.disabled=true;
+    verificar.disabled = true;
 
-    mensaje.className="loading";
-    mensaje.innerHTML="Consultando información...";
+    mensaje.className = "loading";
+    mensaje.innerHTML = "Consultando información...";
 
-    try{
+    try {
 
         const response = await fetch(
             `${API}?documento=${encodeURIComponent(doc)}`
@@ -41,46 +53,46 @@ async function verificarDocumento(){
 
         const data = await response.json();
 
-        if(!data.success){
+        if (!data.success) {
 
             throw new Error(data.message);
 
         }
 
-        if(data.exists){
+        if (data.exists) {
 
-            mensaje.className="error";
-            mensaje.innerHTML="❌ Este documento ya está en la base de datos. No necesitas registrarte.";
+            mensaje.className = "error";
+            mensaje.innerHTML = "❌ Este documento ya está en la base de datos. No necesitas registrarte.";
 
-            continuar.style.display="none";
+            continuar.style.display = "none";
 
-        }else{
+        } else {
 
-            mensaje.className="success";
-            mensaje.innerHTML="✅ Ups, aún no estás en la base de datos. Continúa con el registro.";
+            mensaje.className = "success";
+            mensaje.innerHTML = "✅ Ups, aún no estás en la base de datos. Continúa con el registro.";
 
-            continuar.style.display="block";
+            continuar.style.display = "block";
 
         }
 
-    }catch(error){
+    } catch (error) {
 
         console.error(error);
 
-        mensaje.className="error";
-        mensaje.innerHTML="No fue posible validar el documento.";
+        mensaje.className = "error";
+        mensaje.innerHTML = "No fue posible validar el documento.";
 
     }
 
-    verificar.disabled=false;
+    verificar.disabled = false;
 
 }
 
-continuar.addEventListener("click",()=>{
+continuar.addEventListener("click", () => {
 
-    const doc=documento.value.trim();
+    const doc = documento.value.trim();
 
-    window.location.href=
-    `${FORM}&entry.${DOCUMENTO_ENTRY}=${encodeURIComponent(doc)}`;
+    window.location.href =
+        `${FORM}&entry.${DOCUMENTO_ENTRY}=${encodeURIComponent(doc)}`;
 
 });
