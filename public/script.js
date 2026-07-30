@@ -50,14 +50,14 @@ async function verificarDocumento(){
         if(data.exists){
 
             mensaje.className="error";
-            mensaje.innerHTML="❌ Este documento ya se encuentra inscrito.";
+            mensaje.innerHTML="❌ Este documento ya está en la base de datos. No necesitas registrarte.";
 
             continuar.style.display="none";
 
         }else{
 
             mensaje.className="success";
-            mensaje.innerHTML="✅ Documento disponible.";
+            mensaje.innerHTML="✅ Ups, aún no estás en la base de datos. Continúa con el registro.";
 
             continuar.style.display="block";
 
